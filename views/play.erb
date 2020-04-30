@@ -2,7 +2,7 @@
   .battle { text-align: center }
 </style>
 
-<h1 class='battle'><%= @player_1_name %> vs. <%= @player_2_name %>: <%= @hp %>HP</h1>
+<h1 class='battle'><%= @player_1.name %> vs. <%= @player_2.name %>: <%= @player_2.hitpoints %>HP</h1>
 
 <form action="/play">
   <input type="hidden" name="attacked" value="true">
