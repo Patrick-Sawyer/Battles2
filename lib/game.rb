@@ -1,9 +1,10 @@
 class Game
 
-  attr_reader :players
+  attr_reader :players, :number_of_goes
 
   def initialize(player1, player2)
     @players = [player1, player2]
+    @number_of_goes = 0
   end
 
   def player1
@@ -14,7 +15,12 @@ class Game
     @players[1]
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack
+    @number_of_goes.even? ? player2.receive_damage : player1.receive_damage
+    @number_of_goes += 1
+  end
+
+  def who
+    ((@number_of_goes % 2) == 0) ? player1 : player2
   end
 end
