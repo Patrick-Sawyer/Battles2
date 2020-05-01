@@ -18,13 +18,7 @@ describe Player do
 
   describe '#recieve_damage' do
     it 'deducts points' do
-      expect { dave.recieve_damage }.to change { dave.hitpoints }.by -10
-    end
-  end
-
-  describe '#attack' do
-    it 'deducts 10 points off the other player' do
-      expect { dave.attack(mittens) }.to change { mittens.hitpoints }.by -10
+      expect { dave.receive_damage }.to change { dave.hitpoints }.by -10
     end
   end
 end

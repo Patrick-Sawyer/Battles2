@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player.rb'
+require './lib/game.rb'
 
 class Battle < Sinatra::Base
 
@@ -14,9 +15,10 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
+    @game = Game.new
     @player_1 = $player_1
     @player_2 = $player_2
-    @player_1.attack(@player_2) if params[:attacked]
+    @game.attack(@player_2) if params[:attacked]
     erb :play
   end
   
