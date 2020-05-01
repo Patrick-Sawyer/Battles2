@@ -15,13 +15,13 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @game = Game.new
     @player_1 = $player_1
     @player_2 = $player_2
+    @game = Game.new(@player_1, @player_2)
     @game.attack(@player_2) if params[:attacked]
     erb :play
   end
-  
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
